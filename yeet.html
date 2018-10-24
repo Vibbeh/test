@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <style>
+            #myCanvas{
+                
+                
+            }
+        
+        </style>
+    </head>
+    <body>
+        <p id = "parNavn"></p>
+        <canvas id = "myCanvas" height="1000" width="1000"></canvas>
+        <script>
+            var parNavn = document.getElementById("parNavn"); 
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            
+            var l = Number(prompt("Angi lengde"));
+            var b = Number(prompt("Angi bredde"));
+            
+           
+            if (l < 49 || l > 501 || b < 49 || b > 501) {
+                
+                parNavn.innerHTML = "Sidene må være mellom 50 og 500 pixler!";
+                
+            }
+            else{
+                var shift = 10;
+                parNavn.innerHTML = "Her er firkanten din :)";
+                ctx.fillStyle = "lightblue";
+                ctx.strokeStyle = "blue";
+                ctx.lineWidth = 5;
+                ctx.fillRect(shift,shift,b,l);
+                ctx.strokeRect(shift,shift,b,l);
+                ctx.beginPath();
+                ctx.moveTo(shift,shift+(l/2));
+                ctx.lineTo(shift+b,shift+(l/2));
+                ctx.stroke();
+            }
+            
+            
+        </script>
+    </body>
+</html>
